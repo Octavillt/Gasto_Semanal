@@ -1,6 +1,9 @@
 // Variables y Selectores
 const formulario = document.querySelector('#agregar-gasto'); // Selecciona el formulario con el id 'agregar-gasto'.
 const gastoListado = document.querySelector('#gastos ul'); // Selecciona la lista no ordenada dentro del elemento con id 'gastos'.
+let presupuesto; // Variable para la instancia de Presupuesto que se creará más adelante.
+// END Variables y Selectores
+
 
 // Eventos
 enventListener();
@@ -11,6 +14,7 @@ function enventListener() {
     // Cuando se envíe el formulario, agrega el gasto.
     formulario.addEventListener('submit', agregarGasto);
 }
+// END Eventos
 
 // Clases
 class Presupuesto {
@@ -23,7 +27,8 @@ class Presupuesto {
 
     // Agrega un nuevo gasto al arreglo de gastos y recalcula el presupuesto restante.
     nuevoGasto(gasto) {
-        this.gastos = [...this.gastos, gasto];
+        // this.gastos = [...this.gastos, gasto];
+        this.gastos.push(gasto);
         this.calcularRestante();
     }
 
@@ -67,6 +72,8 @@ class UI {
             divMensaje.remove();
         }, 3000);
     }
+
+// END Clases
 
     // Muestra los gastos en la UI.
     mostrarGastos(gastos) {
@@ -123,7 +130,7 @@ class UI {
 
 // Instancias
 const ui = new UI(); // Se crea una nueva instancia de UI.
-let presupuesto; // Variable para la instancia de Presupuesto que se creará más adelante.
+// END Instancias
 
 // Funciones
 function preguntarPresupuesto() {
